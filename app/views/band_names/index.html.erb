@@ -1,6 +1,6 @@
 <div>
     <%= form_for(@band_name) do |f| %>
-        <%= f.text_field :name %>.
+        <%= f.text_field :name, class: "band_name" %>.
         new band name. <%= f.submit "I call it", class: "button"%>.
     <% end %>
 </div>
