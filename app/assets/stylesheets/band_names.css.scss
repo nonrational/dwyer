@@ -1,3 +1,33 @@
 // Place all the styles related to the band_names controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+    font-family: "Times New Roman";
+}
+
+div {
+    font-size: 40px;
+    padding: 20px;
+}
+
+.band_name {
+
+    &:focus {
+        outline-width: 0;
+    }
+
+    font-size: 40px;
+    width: 40%;
+    display: inline-block;
+    border:none;
+    border-bottom: 2px solid black;
+}
+
+.button {
+    background: none;
+    border: none;
+    font-size: 40px;
+    text-decoration: underline;
+    color: blue;
+}

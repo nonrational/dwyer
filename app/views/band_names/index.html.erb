@@ -1,4 +1,10 @@
 <div>
-    <input name="band_name"/>.
-    new band name. <a href="#">i call it</a>.
+    <%= form_for(@band_name) do |f| %>
+        <%= f.text_field :name %>.
+        new band name. <%= f.submit "I call it", class: "button"%>.
+    <% end %>
 </div>
+
+<ul class="band_names">
+  <%= render @band_names %>
+</ul>
