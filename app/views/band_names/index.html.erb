@@ -1,10 +1,11 @@
 <div>
     <%= form_for(@band_name) do |f| %>
         <%= f.text_field :name, class: "band_name" %>.
-        new band name. <%= f.submit "I call it", class: "button"%>.
+        new band name. <%= f.submit "i call it", class: "button"%>.
     <% end %>
 </div>
 
+<h2>done been called already:<h2>
 <ul class="band_names">
   <%= render @band_names %>
 </ul>

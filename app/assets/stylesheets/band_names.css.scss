@@ -29,6 +29,13 @@ ul.band_names {
 }
 
 .button {
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus {
+        outline-width: 0;
+        color: purple;
+    }
     background: none;
     border: none;
     font-size: 40px;
