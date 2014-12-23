@@ -7,6 +7,7 @@ class BandNamesController < ApplicationController
 
   def create
     new_band_name = BandName.new(post_params)
+    new_band_name.user = User.find(session[:user_id])
 
     if !new_band_name.save
       flash[:error] = new_band_name.errors.full_messages.to_sentence

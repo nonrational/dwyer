@@ -1,13 +1,16 @@
 <div>
-    <%= form_for(@band_name) do |f| %>
-        <%= f.text_field :name, class: "band_name" %>.
-        new band name. <%= f.submit "i call it", class: "button"%>.
+    <% if current_user %>
+        <%= form_for(@band_name) do |f| %>
+            <%= f.text_field :name, class: "band_name" %>.
+            new band name. <%= f.submit "i call it", class: "button"%>.
+        <% end %>
+    <% else %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
     <% end %>
 </div>
 
 <%= error %>
 
-<h2>done been called already:<h2>
 <ul class="band_names">
   <%= render @band_names %>
 </ul>
@@ -17,7 +20,5 @@
     <div class="user_image">
         <img src="<%= current_user.image %>"/>
     </div>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
