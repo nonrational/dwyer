@@ -8,6 +8,15 @@
 <a id="sign_in">Sign in</a>
 <a id="sign_out">Sign out</a>
 
+<div id="user-widget">
+  <% if current_user %>
+    Welcome <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+
 <%= error %>
 
 <h2>done been called already:<h2>
