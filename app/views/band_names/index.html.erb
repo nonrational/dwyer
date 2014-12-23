@@ -14,10 +14,9 @@
 
 <div class="facebook" id="user-widget">
   <% if current_user %>
-    <span class="user_image">
+    <div class="user_image">
         <img src="<%= current_user.image %>"/>
-    </span>
-    <% link_to "Sign out", signout_path, id: "sign_out" %>
+    </div>
   <% else %>
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
