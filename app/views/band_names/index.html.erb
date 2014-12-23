@@ -5,21 +5,20 @@
     <% end %>
 </div>
 
-<a id="sign_in">Sign in</a>
-<a id="sign_out">Sign out</a>
-
-<div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
-
 <%= error %>
 
 <h2>done been called already:<h2>
 <ul class="band_names">
   <%= render @band_names %>
 </ul>
+
+<div class="facebook" id="user-widget">
+  <% if current_user %>
+    <span class="user_image">
+        <img src="<%= current_user.image %>"/>
+    </span>
+    <% link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
