@@ -6,7 +6,11 @@ class BandNamesController < ApplicationController
   end
 
   def create
-    @band_name = BandName.new(post_params).save!
+    new_band_name = BandName.new(post_params)
+
+    if !new_band_name.save
+      flash[:error] = new_band_name.errors.full_messages.to_sentence
+    end
     redirect_to root_url
   end
 
