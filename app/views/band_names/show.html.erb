@@ -1,0 +1,6 @@
+<% if current_user.id == @band_name.user.id %>
+  <%= simple_form_for @band_name do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>
