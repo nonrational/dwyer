@@ -2,7 +2,8 @@ class BandNamesController < ApplicationController
 
   def index
     @band_name = BandName.new
-    @band_names = BandName.all.reverse
+    @band_names = BandName.where(public: true).reverse
+    # @band_names = BandName.all.reverse
   end
 
   def show
@@ -11,7 +12,7 @@ class BandNamesController < ApplicationController
 
   def update
     @band_name = BandName.find(params[:id])
-    if @band_name.update_attributes(params.require(:band_name).permit(:id, :name, :user_id))
+    if @band_name.update_attributes(params.require(:band_name).permit(:id, :name, :public))
       redirect_to root_url
     end
   end
