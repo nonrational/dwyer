@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20141223202821) do
   enable_extension "plpgsql"
 
   create_table "band_names", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
