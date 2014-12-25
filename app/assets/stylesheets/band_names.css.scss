@@ -2,83 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-    font-family: "Times New Roman";
-}
-
-form {
+form.new_band_name {
     font-size: 40px;
     padding: 20px;
+
+    input.band_name {
+
+        &:focus {
+            outline-width: 0;
+        }
+
+        font-size: 40px;
+        width: 40%;
+        display: inline-block;
+        border:none;
+        border-bottom: 2px solid black;
+    }
+
+    .button {
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            outline-width: 0;
+            color: purple;
+        }
+        background: none;
+        border: none;
+        font-size: 40px;
+        text-decoration: underline;
+        color: blue;
+    }
+}
+
+form.edit_band_name {
+    font-size: 30px;
+
+    input {
+        &.string {
+            &:focus {
+                outline-width: 0;
+            }
+
+            font-size: 30px;
+            width: 60%;
+            display: inline-block;
+            border:none;
+            border-bottom: 2px solid black;
+
+        }
+    }
+
+    div {
+        label {
+            padding: 0 14px 0 0;
+        }
+        margin: 20px;
+    }
+
+    .btn {
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            outline-width: 0;
+            color: purple;
+        }
+        background: none;
+        border: none;
+        font-size: 30px;
+        text-decoration: underline;
+        color: blue;
+    }
 }
 
 ul.band_names {
     font-size: 25px;
 }
 
-.band_name {
-
-    &:focus {
-        outline-width: 0;
-    }
-
-    font-size: 40px;
-    width: 40%;
-    display: inline-block;
-    border:none;
-    border-bottom: 2px solid black;
-}
-
-.button {
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus {
-        outline-width: 0;
-        color: purple;
-    }
-    background: none;
-    border: none;
-    font-size: 40px;
-    text-decoration: underline;
-    color: blue;
-}
-
-.facebook {
-
-    .user_image {
-    }
-
-    padding: 0;
-    margin: 0;
-
-    position: absolute;
-    left: 6px;
-    bottom: 0;
-}
-
-.dwyer {
-
-    padding: 0;
-    margin: 0;
-
-    position: absolute;
-    right: 6px;
-    bottom: 0;
-}
-
-footer {
-
-    a {
-        text-decoration: none;
-        color: black;
-    }
-
-    text-align: center;
-    position: absolute;
-    font-size: 18px;
-    padding: 20px 0;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-}
 

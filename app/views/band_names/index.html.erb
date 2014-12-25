@@ -14,15 +14,3 @@
 <ul class="band_names">
   <%= render @band_names %>
 </ul>
-
-<div class="facebook" id="user-widget">
-  <% if current_user %>
-    <div class="user_image">
-        <img src="<%= current_user.image %>"/>
-    </div>
-  <% end %>
-</div>
-
-<div class="dwyer">
-  <%= image_tag 'chris-pratt-andy-dwyer-tv-happy-parks-and-recreation_small_square_50.gif', {width: 50, height: 50} %>
-</div>
