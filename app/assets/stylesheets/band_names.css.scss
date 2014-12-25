@@ -19,7 +19,7 @@ form.new_band_name {
         border-bottom: 2px solid black;
     }
 
-    .button {
+    .btn {
         &:hover {
             cursor: pointer;
         }
@@ -27,6 +27,7 @@ form.new_band_name {
             outline-width: 0;
             color: purple;
         }
+        padding: 0;
         background: none;
         border: none;
         font-size: 40px;
@@ -37,6 +38,10 @@ form.new_band_name {
 
 form.edit_band_name {
     font-size: 30px;
+
+    label {
+        margin-right: -10px;
+    }
 
     input {
         &.string {
@@ -49,8 +54,13 @@ form.edit_band_name {
             display: inline-block;
             border:none;
             border-bottom: 2px solid black;
-
+            padding: 0;
         }
+    }
+
+    input[type=checkbox] {
+        zoom: 2.0;
+        margin: 2px 0 0 0;
     }
 
     div {
@@ -71,6 +81,7 @@ form.edit_band_name {
             color: purple;
         }
         background: none;
+        padding: 0;
         border: none;
         font-size: 30px;
         text-decoration: underline;

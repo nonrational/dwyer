@@ -2,10 +2,10 @@
     <% if current_user %>
         <%= form_for(@band_name) do |f| %>
             <%= f.text_field :name, class: "band_name" %>.
-            new band name. <%= f.submit "i call it", class: "button"%>.
+            new band name. <%= f.submit "i call it", class: "btn call_it"%>.
         <% end %>
     <% else %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "sign_in"  %>
     <% end %>
 </div>
 

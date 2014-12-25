@@ -1,9 +1,17 @@
 
 <% if current_user && (current_user.id == 1 || current_user.id == @band_name.user.id) %>
-  <%= simple_form_for @band_name do |f| %>
-    <%= f.input :name %>
-    <%= f.input :public %>
-    <%= f.button :submit %>
+  <%= form_for(@band_name, class: "edit_band_name") do |f| %>
+    <div>
+        <%= f.label :name, "Band Name:" %>
+        <%= f.text_field :name, class: "band_name string" %>
+    </div>
+    <div>
+        <%= f.label :public, "Public:" %>
+        <%= f.check_box :public %>
+    </div>
+    <div>
+        <%= f.submit "Submit", class: "btn" %>
+    </div>
   <% end %>
 
 <% else %>
