@@ -9,14 +9,13 @@ function removeSpecialChars(str) {
 }
 
 $(document).ready(function(){
-    var $band_name_box = $('input.band_name.string');
-
     $('input.btn.title_case').click(function(){
+        var $band_name_box = $('input.band_name.string');
         $band_name_box.val(toTitleCase($band_name_box.val()));
     });
 
     $('input.btn.remove_special_chars').click(function(){
+        var $band_name_box = $('input.band_name.string');
         $band_name_box.val(removeSpecialChars($band_name_box.val()));
     });
-
 });
