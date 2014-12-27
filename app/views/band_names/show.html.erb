@@ -2,15 +2,20 @@
 <% if current_user && (current_user.id == 1 || current_user.id == @band_name.user.id) %>
   <%= form_for(@band_name, class: "edit_band_name") do |f| %>
     <div>
-        <%= f.label :name, "Band Name:" %>
-        <%= f.text_field :name, class: "band_name string" %>
+      <%= f.label :name, "Band Name:" %>
+      <%= f.text_field :name, class: "band_name string" %>
+      <div class="transformations">
+        <input type="button" class="btn title_case" value="Title Case">
+        <input type="button" class="btn remove_special_chars" value="Remove Special Characters">
+      </div>
+    </div>
+
+    <div>
+      <%= f.label :public, "Public:" %>
+      <%= f.check_box :public %>
     </div>
     <div>
-        <%= f.label :public, "Public:" %>
-        <%= f.check_box :public %>
-    </div>
-    <div>
-        <%= f.submit "Submit", class: "btn" %>
+      <%= f.submit "Submit", class: "submit btn" %>
     </div>
   <% end %>
 

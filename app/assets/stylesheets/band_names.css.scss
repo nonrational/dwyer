@@ -70,7 +70,20 @@ form.edit_band_name {
         margin: 20px;
     }
 
+    .transformations {
+        position: relative;
+        padding: 0;
+        margin: -10px 0 0 164px;
+        .btn {
+            font-size: 14px;
+        }
+    }
+
     .btn {
+
+        &.submit {
+            font-size: 30px;
+        }
 
         &:hover {
             cursor: pointer;
@@ -78,12 +91,11 @@ form.edit_band_name {
 
         &:focus {
             outline-width: 0;
-            color: purple;
         }
+
         background: none;
         padding: 0;
         border: none;
-        font-size: 30px;
         text-decoration: underline;
         color: blue;
     }
