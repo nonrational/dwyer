@@ -8,14 +8,21 @@ function removeSpecialChars(str) {
     return str.replace(/[^\w\s]/gi, '');
 }
 
-$(document).ready(function(){
+
+function doBind(){
+
+    var $band_name_box = $('input.band_name.string');
+
     $('input.btn.title_case').click(function(){
-        var $band_name_box = $('input.band_name.string');
         $band_name_box.val(toTitleCase($band_name_box.val()));
     });
 
     $('input.btn.remove_special_chars').click(function(){
-        var $band_name_box = $('input.band_name.string');
         $band_name_box.val(removeSpecialChars($band_name_box.val()));
     });
-});
+}
+
+//document load
+$(document).ready(doBind);
+//turbolinks load
+$(document).on('page:load', doBind);
