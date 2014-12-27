@@ -2,6 +2,7 @@ class BandNamesController < ApplicationController
 
   def index
     @band_name = BandName.new
+    # TODO: public OR you own it OR you're an admin.
     @band_names = BandName.where(public: true).reverse
     # @band_names = BandName.all.reverse
   end
