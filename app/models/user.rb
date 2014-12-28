@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def owns?(band_name)
+    self.id == band_name.owner.id
+  end
+
 end

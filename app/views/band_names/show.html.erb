@@ -1,5 +1,8 @@
+<% content_for :breadcrumbs do %>
+    ⇒ <%= @band_name.name %>
+<% end %>
 
-<% if current_user && (current_user.id == 1 || current_user.id == @band_name.user.id) %>
+<% if current_user && (current_user.admin? || current_user.owns?(@band_name)) %>
   <%= form_for(@band_name, class: "edit_band_name") do |f| %>
     <div>
       <%= f.label :name, "Band Name:" %>

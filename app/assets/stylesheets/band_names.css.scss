@@ -103,6 +103,9 @@ form.edit_band_name {
 
 ul.band_names {
     font-size: 25px;
+    li.private, li.private a {
+        color: #CCC;
+    }
 }
 
 

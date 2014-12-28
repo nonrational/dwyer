@@ -2,9 +2,16 @@ class BandNamesController < ApplicationController
 
   def index
     @band_name = BandName.new
-    # TODO: public OR you own it OR you're an admin.
-    @band_names = BandName.where(public: true).reverse
-    # @band_names = BandName.all.reverse
+
+    if current_user && current_user.admin?
+      @band_names = BandName.all
+    elsif current_user
+      @band_names = BandName.where("public=true OR owner.id=?", current_user.id)
+    else
+      @band_names = BandName.where(public: true)
+    end
+
+    @band_names = @band_names.reverse
   end
 
   def show
@@ -25,6 +32,7 @@ class BandNamesController < ApplicationController
     if !new_band_name.save
       flash[:error] = new_band_name.errors.full_messages.to_sentence
     end
+
     redirect_to root_url
   end
 
