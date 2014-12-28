@@ -18,9 +18,14 @@ class BandNamesController < ApplicationController
     @band_name = BandName.find(params[:id])
   end
 
+  def edit
+    @band_name = BandName.find(params[:id])
+  end
+
   def destroy
     if current_user && current_user.admin?
       BandName.destroy(params[:id])
+      flash[:notice] = "Deleted BandName/#{params[:id]}"
     else
       flash[:error] = "Hey! You can't do that, buddy."
     end

@@ -1,0 +1,27 @@
+<% content_for :breadcrumbs do %>
+    ⇒ <%= @band_name.name %>
+<% end %>
+
+<% if current_user && (current_user.admin? || current_user.owns?(@band_name)) %>
+  <%= form_for(@band_name, class: "edit_band_name") do |f| %>
+    <div>
+      <%= f.label :name, "Band Name:" %>
+      <%= f.text_field :name, class: "band_name string" %>
+      <div class="transformations">
+        <input type="button" class="btn title_case" value="Title Case">
+        <input type="button" class="btn remove_special_chars" value="Remove Special Characters">
+      </div>
+    </div>
+
+    <div>
+      <%= f.label :public, "Public:" %>
+      <%= f.check_box :public %>
+    </div>
+    <div>
+      <%= f.submit "Submit", class: "submit btn" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Destroy', @band_name, method: 'delete', data: { confirm: 'Are you sure?'} %>
+
+<% end %>
