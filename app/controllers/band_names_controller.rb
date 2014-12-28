@@ -6,7 +6,7 @@ class BandNamesController < ApplicationController
     if current_user && current_user.admin?
       @band_names = BandName.all
     elsif current_user
-      @band_names = BandName.where("public=true OR owner.id=?", current_user.id)
+      @band_names = BandName.where("public=true OR user_id=?", current_user.id)
     else
       @band_names = BandName.where(public: true)
     end
@@ -16,6 +16,15 @@ class BandNamesController < ApplicationController
 
   def show
     @band_name = BandName.find(params[:id])
+  end
+
+  def destroy
+    if current_user && current_user.admin?
+      BandName.destroy(params[:id])
+    else
+      flash[:error] = "Hey! You can't do that, buddy."
+    end
+    redirect_to root_url
   end
 
   def update
