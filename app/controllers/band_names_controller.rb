@@ -4,11 +4,11 @@ class BandNamesController < ApplicationController
     @band_name = BandName.new
 
     if current_user && current_user.admin?
-      @band_names = BandName.all
+      @band_names = BandName.all.limit(20)
     elsif current_user
-      @band_names = BandName.where("public=true OR user_id=?", current_user.id)
+      @band_names = BandName.where("public=true OR user_id=?", current_user.id).limit(20)
     else
-      @band_names = BandName.where(public: true)
+      @band_names = BandName.where(public: true).limit(20)
     end
 
     @band_names = @band_names.reverse
