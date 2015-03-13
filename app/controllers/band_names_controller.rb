@@ -4,14 +4,14 @@ class BandNamesController < ApplicationController
     @band_name = BandName.new
 
     if current_user && current_user.admin?
-      @band_names = BandName.all.limit(20)
+      @band_names = BandName.all.limit(20).order(created_at: :desc)
     elsif current_user
-      @band_names = BandName.where("public=true OR user_id=?", current_user.id).limit(20)
+      @band_names = BandName.where("public=true OR user_id=?", current_user.id).limit(20).order(created_at: :desc)
     else
-      @band_names = BandName.where(public: true).limit(20)
+      @band_names = BandName.where(public: true).limit(20).order(created_at: :desc)
     end
 
-    @band_names = @band_names.reverse
+    @band_names
   end
 
   def show
