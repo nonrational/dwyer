@@ -96,6 +96,9 @@ GEM
     json (1.8.1)
     jwt (0.1.13)
       multi_json (>= 1.5)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     listen (2.8.4)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -220,6 +223,7 @@ DEPENDENCIES
   guard-livereload
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   omniauth
   omniauth-facebook (= 1.4.0)
   pg
