@@ -7,44 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-    <div class="breadcrumbs">
-      <%= link_to "dwyer", root_path %>
-      <%= yield(:breadcrumbs) if content_for?(:breadcrumbs) %>
-    </div>
-    <div class="error">
-      <%= error %>
-    </div>
-    <div class="notice">
-      <%= notice %>
-    </div>
-</header>
+  <div class="page-wrap">
+    <header class="navigation" role="banner">
+      <div class="navigation-wrapper">
+        <a href="javascript:void(0)" class="logo">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+        </a>
+        <nav role="navigation">
+          <ul id="js-navigation-menu" class="navigation-menu show">
+            <li class="nav-link"><%= link_to "Bands", root_path %>"></li>
+          </ul>
+        </nav>
+      </div>
 
-<article>
-<%= yield %>
-</article>
+      <div class="flash-error"><%= error %></div>
+      <div class="flash-notice"><%= notice %></div>
+    </header>
 
-<footer>
-    [<%= link_to "dwyer", root_path, style: "text-decoration:underline" %>]
-    for <a target="_blank" href="https://twitter.com/kweeston">@kweeston</a>.
-    ❤︎  <a target="_blank" href="https://twitter.com/nonrational">@nonrational</a>.
-</footer>
-
-<div class="facebook" id="user-widget">
-  <% if current_user %>
-    <div class="user_image <%= 'admin' if current_user.admin? %>">
-        <%= link_to image_tag(current_user.image), signout_path, id: "sign_out", width: 50, height: 50, data: {confirm: "Really Logout?"} %>
-    </div>
-  <% else %>
-    <div class="user_image logged_out">
-        <%= link_to image_tag('facebook_logo.jpg'), "/auth/facebook", id: "sign_in", class: "sign_in", width: 50, height: 50 %>
-    </div>
-  <% end %>
-</div>
-
-<div class="dwyer">
-  <%= image_tag 'chris-pratt-andy-dwyer-tv-happy-parks-and-recreation_small_square_50.gif', width: 50, height: 50 %>
-</div>
-
+    <article>
+    <%= yield %>
+    </article>
+  </div>
+  <footer class="footer" role="contentinfo">
+    <p>for <a target="_blank" href="https://twitter.com/kweeston">@kweeston</a> by <a target="_blank" href="https://twitter.com/nonrational">@nonrational</a>.</p>
+  </footer>
 </body>
 </html>
