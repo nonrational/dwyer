@@ -31,3 +31,16 @@ guard 'livereload' do
   # Rails Assets Pipeline
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
 end
+
+guard 'bundler', notify: false do
+  watch('Gemfile')
+end
+
+guard 'pow', cli: '--notify false', restart_on_start: true, restart_on_reload: false do
+  watch('.powrc')
+  watch('.powenv')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch('config/**/*.rb')
+  watch('lib/routes/**/*.rb')
+end

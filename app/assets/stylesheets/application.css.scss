@@ -14,13 +14,29 @@
  *= require_self
  */
 
-
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600|Kreon');
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 $light-gray: #333;
 
 * {
-    font-family: "Times New Roman";
     margin: 0;
+}
+
+header {
+    margin-bottom: 100px;
+}
+
+form {
+    margin-top: 40px !important;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    min-height: 100vh;
 }
 
 html, body {
@@ -87,10 +103,8 @@ footer {
         color: black;
     }
 
-    /* padding-top: 10px; */
     position: absolute;
     margin-left: 41%;
-    /* height: 4em; */
     bottom: 0px;
     margin-bottom: 10px;
 }
