@@ -10,9 +10,11 @@ AllCops:
     - 'frontend/**/*'
     - 'build/**/*'
     - 'Gemfile'
-  RunRailsCops: true
   DisplayStyleGuide: true
   DisplayCopNames: true
+
+Rails:
+  Enabled: true
 
 Metrics/ClassLength:
   Max: 250

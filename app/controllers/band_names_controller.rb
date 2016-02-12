@@ -2,13 +2,13 @@ require 'pry-remote'
 
 class BandNamesController < ApplicationController
   def index
-    @band_name = session[:failed_band_name] || BandName.new
+    @band_name = BandName.new(session[:failed_band_name])
     session[:failed_band_name] = nil
 
     if current_user && current_user.admin?
-      names = BandName.all
+      BandName.all
     else
-      names = BandName.where(public: true)
+      BandName.where(public: true)
     end
 
     @band_names = BandName.all.order(created_at: :desc).page(params[:page]).per(20)
@@ -34,9 +34,7 @@ class BandNamesController < ApplicationController
   end
 
   def update
-    if band_name.update_attributes(update_params)
-      redirect_to root_url
-    end
+    redirect_to root_url if band_name.update_attributes(update_params)
   end
 
   def create
