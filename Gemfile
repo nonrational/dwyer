@@ -22,7 +22,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
+gem 'simple_form'
 gem 'kaminari'
+
 
 group :production do
   gem 'rails_12factor'

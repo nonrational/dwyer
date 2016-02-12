@@ -1,6 +1,6 @@
 <div>
     <% if current_user %>
-        <%= form_for(@band_name) do |f| %>
+        <%= simple_form_for @band_name do |f| %>
             <%= f.text_field :name, class: "band_name" %>.
             new band name. <%= f.submit "i call it", class: "btn call_it"%>.
         <% end %>
