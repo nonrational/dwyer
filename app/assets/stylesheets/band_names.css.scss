@@ -4,7 +4,7 @@
 
 form.new_band_name {
     font-size: 40px;
-    padding: 20px;
+    padding: 40px 20px;
 
     input.band_name {
 
@@ -17,6 +17,9 @@ form.new_band_name {
         display: inline-block;
         border:none;
         border-bottom: 2px solid black;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
     }
 
     .btn {
@@ -102,6 +105,7 @@ form.edit_band_name {
 }
 
 ul.band_names {
+    margin-left: 40px;
     font-size: 25px;
     li.private, li.private a {
         color: #CCC;

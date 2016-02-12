@@ -16,9 +16,10 @@
 @import "bourbon";
 @import "base/base";
 @import "neat";
+@import "band_names";
 
 * {
-  margin: 0 2px 0;
+  margin: 0;
 }
 
 html, body {
@@ -36,9 +37,14 @@ html, body {
   height: 20px;
 }
 .footer {
-    text-align: center;
+  text-align: center;
 }
 
+form.new_band_name {
+  input {
+    border: 0;
+  }
+}
 
 header.navigation {
   $base-border-color: gainsboro !default;
