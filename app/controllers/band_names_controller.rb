@@ -1,5 +1,3 @@
-require 'pry-remote'
-
 class BandNamesController < ApplicationController
   def index
     @band_name = BandName.new(session[:failed_band_name])
