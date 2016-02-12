@@ -1,12 +1,12 @@
-class BandNamesController < ApplicationController
+require 'pry-remote'
 
+class BandNamesController < ApplicationController
   def index
-    @band_name = BandName.new
+    @band_name = session[:failed_band_name] || BandName.new
+    session[:failed_band_name] = nil
 
     if current_user && current_user.admin?
       names = BandName.all
-    elsif current_user
-      names = BandName.where("public=true OR user_id=?", current_user.id)
     else
       names = BandName.where(public: true)
     end
@@ -15,36 +15,36 @@ class BandNamesController < ApplicationController
   end
 
   def show
-    @band_name = BandName.find(params[:id])
+    band_name
   end
 
   def edit
-    @band_name = BandName.find(params[:id])
+    band_name
   end
 
   def destroy
-    if current_user && current_user.admin?
-      BandName.destroy(params[:id])
-      flash[:notice] = "Deleted BandName/#{params[:id]}"
+    if current_user && (current_user.admin? || current_user.owns?(band_name))
+      flash[:notice] = "Deleted BandName/#{band_name.id}"
+      band_name.destroy!
     else
       flash[:error] = "Hey! You can't do that, buddy."
     end
+
     redirect_to root_url
   end
 
   def update
-    @band_name = BandName.find(params[:id])
-    if @band_name.update_attributes(params.require(:band_name).permit(:id, :name, :public))
+    if band_name.update_attributes(update_params)
       redirect_to root_url
     end
   end
 
   def create
-    new_band_name = BandName.new(params.require(:band_name).permit(:name))
-    new_band_name.user = User.find(session[:user_id])
+    @band_name = BandName.new(create_params.merge(user: current_user))
 
-    if !new_band_name.save
-      flash[:error] = new_band_name.errors.full_messages.to_sentence
+    unless band_name.save
+      session[:failed_band_name] = band_name
+      flash[:error] = band_name.errors.full_messages.to_sentence
     end
 
     redirect_to root_url
@@ -52,7 +52,19 @@ class BandNamesController < ApplicationController
 
   private
 
+  def create_params
+    params.require(:band_name).permit(:name)
+  end
+
+  def update_params
+    params.require(:band_name).permit(:id, :name, :public)
+  end
+
   def post_params
     params.require(:band_name).permit(:name, :user_id)
+  end
+
+  def band_name
+    @band_name ||= BandName.find_by_id(params[:id])
   end
 end
