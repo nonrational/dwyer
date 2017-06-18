@@ -43,4 +43,4 @@ Rails.application.configure do
 end
 
 ENV['FACEBOOK_APP_ID'] ||= '1582405371991209'
-ENV['FACEBOOK_SECRET'] ||= '74d78499f732fcd93e4bdcb2e75d52e4'
+ENV['FACEBOOK_APP_SECRET'] ||= '74d78499f732fcd93e4bdcb2e75d52e4'
