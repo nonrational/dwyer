@@ -41,3 +41,6 @@ Rails.application.configure do
 
   # config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 end
+
+ENV['FACEBOOK_KEY'] ||= '1582405371991209'
+ENV['FACEBOOK_SECRET'] ||= '74d78499f732fcd93e4bdcb2e75d52e4'
