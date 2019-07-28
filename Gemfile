@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.6.3'
 
-gem 'rails', '5.1.0'
+gem 'rails', '5.2.3'
 gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
@@ -13,13 +13,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'omniauth'
 gem 'omniauth-facebook', '4.0.0'
+gem 'omniauth-google-oauth2'
 
 gem 'simple_form'
 gem 'kaminari'
-
-# group :production do
-#   gem 'rails_12factor'
-# end
 
 group :development, :test do
   gem 'pry-remote'
