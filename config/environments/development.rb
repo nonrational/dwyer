@@ -44,3 +44,6 @@ end
 
 ENV['FACEBOOK_APP_ID'] ||= '1582405371991209'
 ENV['FACEBOOK_APP_SECRET'] ||= '74d78499f732fcd93e4bdcb2e75d52e4'
+
+ENV["GOOGLE_CLIENT_ID"] ||= '594499527709-e6qa8m6lcv2n1dfse9b73fklg5imjt4h.apps.googleusercontent.com'
+ENV["GOOGLE_CLIENT_SECRET"] ||= 'veswCwtU861UpKkwKoWht-P_'

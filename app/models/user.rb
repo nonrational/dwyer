@@ -1,17 +1,15 @@
-class User < ActiveRecord::Base
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.image = auth.info.image
-      user.save!
-    end
-  end
+# frozen_string_literal: true
+
+class User < ApplicationRecord
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def owns?(band_name)
     id == band_name.owner.id
+  end
+
+  class << self
+    def from_google(auth)
+      find_or_create_by(email: email, full_name: auth.info.name, provider: "Google")
+    end
   end
 end
