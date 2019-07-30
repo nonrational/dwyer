@@ -1,5 +1,6 @@
 # See full list of defaults here: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 # To see all cops used see here: https://github.com/bbatsov/rubocop/blob/master/config/enabled.yml
+require: rubocop-rails
 
 AllCops:
   Exclude:
@@ -7,14 +8,19 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'vendor/**/*'
-    - 'frontend/**/*'
     - 'build/**/*'
+    - 'node_modules/**/*'
     - 'Gemfile'
   DisplayStyleGuide: true
   DisplayCopNames: true
+  TargetRubyVersion: 2.6
 
-Rails:
-  Enabled: true
+Metrics/BlockLength:
+  Exclude:
+    - 'app/views/**/*jbuilder'
+    - 'spec/**/*spec.rb'
+    - 'app/serializers/*_serializer.rb'
+  Max: 35
 
 Metrics/ClassLength:
   Max: 250
@@ -50,6 +56,36 @@ Lint/AmbiguousRegexpLiteral:
   Exclude:
     - 'spec/**/*'
 
+Layout/AlignParameters:
+  Enabled: true
+
+Layout/CaseIndentation:
+  IndentOneStep: true
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+
+Naming/PredicateName:
+  NamePrefix:
+    - is_
+  NamePrefixBlacklist:
+    - is_
+
 Style/Documentation:
   Enabled: false
 
@@ -62,12 +98,13 @@ Style/SignalException:
 Style/SymbolProc:
   Enabled: false
 
-Style/CaseIndentation:
-  IndentOneStep: true
-
 Style/LambdaCall:
   Exclude:
     - 'app/views/**/*.jbuilder'
+
+Style/RegexpLiteral:
+  Exclude:
+    - 'spec/**/*'
 
 Style/MissingElse:
   Enabled: true
@@ -76,23 +113,19 @@ Style/MissingElse:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-Style/AlignParameters:
-  Enabled: false
-
-Style/ClosingParenthesisIndentation:
-  Enabled: false
-
-Style/MultilineOperationIndentation:
-  EnforcedStyle: indented
-
-Style/PredicateName:
-  NamePrefix:
-    - is_
-  NamePrefixBlacklist:
-    - is_
-
 Style/Lambda:
   Enabled: false
 
 Rails/FindEach:
   Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - 'spec/**/*'

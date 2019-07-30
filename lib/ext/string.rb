@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class String
   def to_snakecase
     gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')

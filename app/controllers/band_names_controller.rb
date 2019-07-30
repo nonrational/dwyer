@@ -1,15 +1,11 @@
+# frozen_string_literal: true
+
 class BandNamesController < ApplicationController
   def index
     @band_name = BandName.new(session[:failed_band_name])
     session[:failed_band_name] = nil
 
-    if current_user && current_user.admin?
-      BandName.all
-    else
-      BandName.where(public: true)
-    end
-
-    @band_names = BandName.all.order(created_at: :desc).page(params[:page]).per(20)
+    @band_names = visible_band_names.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show
@@ -32,10 +28,10 @@ class BandNamesController < ApplicationController
   end
 
   def update
-    redirect_to root_url if band_name.update_attributes(update_params)
+    redirect_to root_url if band_name.update(update_params)
   end
 
-  def create
+  def create # rubocop:disable Metrics/AbcSize
     @band_name = BandName.new(create_params.merge(user: current_user))
 
     unless band_name.save
@@ -47,6 +43,10 @@ class BandNamesController < ApplicationController
   end
 
   private
+
+  def visible_band_names
+    current_user&.admin? ? BandName.all : BandName.where(public: true)
+  end
 
   def create_params
     params.require(:band_name).permit(:name)
@@ -61,6 +61,6 @@ class BandNamesController < ApplicationController
   end
 
   def band_name
-    @band_name ||= BandName.find_by_id(params[:id])
+    @band_name ||= BandName.find_by(id: params[:id])
   end
 end

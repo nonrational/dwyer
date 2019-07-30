@@ -21,7 +21,7 @@ gem 'kaminari'
 group :development, :test do
   gem 'pry-remote'
   gem 'pry-rails'
-  gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'web-console'
   gem 'puma'
 
