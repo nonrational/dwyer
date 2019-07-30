@@ -12,7 +12,6 @@ gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem 'omniauth-facebook', '4.0.0'
 gem 'omniauth-google-oauth2'
 
 gem 'simple_form'

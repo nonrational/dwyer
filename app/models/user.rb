@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  devise :omniauthable, omniauth_providers: %i[google_oauth2]
 
   alias_attribute :image_url, :image
 
