@@ -17,6 +17,8 @@ gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'kaminari'
 
+gem 'rollbar'
+
 group :development do
   gem 'web-console'
   gem 'puma'

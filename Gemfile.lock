@@ -172,6 +172,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rollbar (2.21.0)
     rubocop (0.73.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -246,6 +247,7 @@ DEPENDENCIES
   puma
   rails (= 5.2.3)
   rb-fsevent
+  rollbar
   rubocop-rails
   sass-rails
   sdoc (~> 0.4.0)
