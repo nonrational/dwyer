@@ -75,4 +75,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.middleware.use OmniAuth::Builder do
+    provider(
+      :google_oauth2,
+      ENV['GOOGLE_CLIENT_ID'],
+      ENV['GOOGLE_CLIENT_SECRET'],
+      skip_jwt: true,
+      redirect_uri: 'https://newbandnameicallit.com/users/auth/google_oauth2/callback'
+    )
+  end
 end

@@ -40,6 +40,15 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+
+  config.middleware.use OmniAuth::Builder do
+    provider(
+      :google_oauth2,
+      ENV['GOOGLE_CLIENT_ID'],
+      ENV['GOOGLE_CLIENT_SECRET'],
+      skip_jwt: true,
+    )
+  end
 end
 
 ENV["GOOGLE_CLIENT_ID"] ||= '271670638803-anjlpqgm7oaobmellj7i26df1prd2qvc.apps.googleusercontent.com'
