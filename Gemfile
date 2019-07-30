@@ -2,26 +2,22 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 gem 'rails', '5.2.3'
-gem 'pg'
-gem 'sass-rails'
-gem 'uglifier'
-
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder'
-gem 'sdoc', '~> 0.4.0', group: :doc
-
 gem 'devise'
-gem 'omniauth-google-oauth2'
-
-gem 'simple_form'
+gem 'jbuilder'
+gem 'jquery-rails'
 gem 'kaminari'
-
+gem 'omniauth-google-oauth2'
+gem 'pg'
+gem 'puma'
 gem 'rollbar'
+gem 'sass-rails'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'simple_form'
+gem 'turbolinks'
+gem 'uglifier'
 
 group :development do
   gem 'web-console'
-  gem 'puma'
 end
 
 group :development, :test do
