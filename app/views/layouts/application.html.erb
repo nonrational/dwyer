@@ -7,43 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-    <div class="breadcrumbs">
-      <%= link_to "dwyer", root_path %>
-      <%= yield(:breadcrumbs) if content_for?(:breadcrumbs) %>
-    </div>
-    <div class="error">
-      <%= error %>
-    </div>
-    <div class="notice">
-      <%= notice %>
-    </div>
-</header>
 
-<article>
-<%= yield %>
-</article>
+  <article>
+    <header>
+      <div class="breadcrumbs">
+        <%= link_to "dwyer", root_path %>
+        <%= yield(:breadcrumbs) if content_for?(:breadcrumbs) %>
+      </div>
 
-<footer>
-    [<%= link_to "dwyer", root_path, style: "text-decoration:underline" %>]
-    <a target="_blank" href="https://twitter.com/nonrational">@nonrational</a>.
-</footer>
+      <div class="alert">
+        <div class="error">
+          <%= error %>
+        </div>
 
-<div class="facebook" id="user-widget">
-  <% if current_user %>
-    <div class="user_image <%= 'admin' if current_user.admin? %>">
-        <%= link_to "logout", destroy_user_session_path %>
-    </div>
-  <% else %>
-    <div id="sign_in_with_google" class="col-md-4 center-block" style="">
-      <%= link_to "login", user_google_oauth2_omniauth_authorize_path %><br />
-    </div>
-  <% end %>
-</div>
+        <div class="notice">
+          <%= notice %>
+        </div>
+      </div>
 
-<div class="dwyer">
-  <%= image_tag 'chris-pratt-andy-dwyer-tv-happy-parks-and-recreation_small_square_50.gif', width: 50, height: 50 %>
-</div>
+       <div class="user_info" id="user-widget">
+        <% if current_user.present? %>
+        <div class="user_image <%= 'admin' if current_user.admin? %>">
+          <%= link_to "Log out #{current_user.name}".titlecase,  destroy_user_session_path %>
+        </div>
+        <% else %>
+        <div id="sign_in_with_google" class="col-md-4 center-block" style="">
+          <%= link_to "login", user_google_oauth2_omniauth_authorize_path %><br />
+        </div>
+        <% end %>
+      </div>
+    </header>
+
+    <main>
+    <%= yield %>
+    </main>
+
+    <footer>
+      <div class='cover_container'>
+        <%= image_tag('cover', class: :cover) %>
+      </div>
+    </footer>
+  </article>
 
 </body>
 </html>

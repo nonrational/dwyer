@@ -35,5 +35,4 @@ ActiveRecord::Schema.define(version: 2019_07_30_015244) do
     t.boolean "admin", default: false, null: false
     t.string "email"
   end
-
 end

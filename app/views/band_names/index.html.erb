@@ -1,14 +1,14 @@
 <div>
-    <% if current_user %>
-        <%= simple_form_for @band_name do |f| %>
-            <%= f.text_field :name, class: "band_name" %>.
-            new band name. <%= f.submit "i call it", class: "btn call_it"%>.
-        <% end %>
-    <% end %>
+  <%= simple_form_for @band_name do |f| %>
+    <span class="<%= :disabled if current_user.nil? %>">
+    <%= f.input :name, label: false, wrapper: false, disabled: current_user.nil? %>. new band name.
+    <%= f.button :submit, "i call it", disabled: current_user.nil? %>.
+    </span>
+  <% end %>
 </div>
 
-
 <ul class="band_names">
-    <%= render @band_names %>
+  <%= render @band_names %>
 </ul>
+
 <%= paginate @band_names %>

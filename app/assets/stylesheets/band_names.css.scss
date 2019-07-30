@@ -3,109 +3,127 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 form.new_band_name {
+  font-size: 40px;
+  padding: 20px;
+
+  .disabled {
+    color: #DDD;
+  }
+
+  .controls {
+    display: inline;
+
+    #band_name_name {
+      &:focus {
+        outline-width: 0;
+      }
+
+      &:disabled {
+        color: #DDD;
+        border-bottom: 2px solid #DDD;
+      }
+
+      font-size: 40px;
+      width: 40%;
+      border: none;
+      border-bottom: 2px solid black;
+    }
+  }
+
+  .btn {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline-width: 0;
+      color: purple;
+    }
+
+    &:disabled {
+      color: #DDD;
+      cursor: default;
+    }
+
+    padding: 0;
+    background: none;
+    border: none;
     font-size: 40px;
-    padding: 20px;
-
-    input.band_name {
-
-        &:focus {
-            outline-width: 0;
-        }
-
-        font-size: 40px;
-        width: 40%;
-        display: inline-block;
-        border:none;
-        border-bottom: 2px solid black;
-    }
-
-    .btn {
-        &:hover {
-            cursor: pointer;
-        }
-        &:focus {
-            outline-width: 0;
-            color: purple;
-        }
-        padding: 0;
-        background: none;
-        border: none;
-        font-size: 40px;
-        text-decoration: underline;
-        color: blue;
-    }
+    text-decoration: underline;
+    color: blue;
+  }
 }
 
 form.edit_band_name {
-    font-size: 30px;
+  font-size: 30px;
 
+  label {
+    margin-right: -10px;
+  }
+
+  input {
+    &.string {
+      &:focus {
+        outline-width: 0;
+      }
+
+      font-size: 30px;
+      width: 60%;
+      display: inline-block;
+      border:none;
+      border-bottom: 2px solid black;
+      padding: 0;
+    }
+  }
+
+  input[type=checkbox] {
+    zoom: 2.0;
+    margin: 2px 0 0 0;
+  }
+
+  div {
     label {
-        margin-right: -10px;
+      padding: 0 14px 0 0;
     }
+    margin: 20px;
+  }
 
-    input {
-        &.string {
-            &:focus {
-                outline-width: 0;
-            }
-
-            font-size: 30px;
-            width: 60%;
-            display: inline-block;
-            border:none;
-            border-bottom: 2px solid black;
-            padding: 0;
-        }
-    }
-
-    input[type=checkbox] {
-        zoom: 2.0;
-        margin: 2px 0 0 0;
-    }
-
-    div {
-        label {
-            padding: 0 14px 0 0;
-        }
-        margin: 20px;
-    }
-
-    .transformations {
-        position: relative;
-        padding: 0;
-        margin: -10px 0 0 164px;
-        .btn {
-            font-size: 14px;
-        }
-    }
-
+  .transformations {
+    position: relative;
+    padding: 0;
+    margin: -10px 0 0 164px;
     .btn {
-
-        &.submit {
-            font-size: 30px;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:focus {
-            outline-width: 0;
-        }
-
-        background: none;
-        padding: 0;
-        border: none;
-        text-decoration: underline;
-        color: blue;
+      font-size: 14px;
     }
+  }
+
+  .btn {
+
+    &.submit {
+      font-size: 30px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline-width: 0;
+    }
+
+    background: none;
+    padding: 0;
+    border: none;
+    text-decoration: underline;
+    color: blue;
+  }
 }
 
 ul.band_names {
-    font-size: 25px;
-    li.private, li.private a {
-        color: #CCC;
-    }
+  font-size: 25px;
+  li.private, li.private a {
+    color: #CCC;
+  }
 }
 
 
