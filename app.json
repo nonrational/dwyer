@@ -1,0 +1,26 @@
+{
+  "addons": [
+    "heroku-postgresql",
+    "papertrail",
+    "newrelic",
+    "strongloop"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "environments": {
+    "test": {
+      "addons": ["heroku-postgresql:in-dyno", "heroku-redis:in-dyno"]
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "dwyer",
+  "scripts": {},
+  "stack": "heroku-18"
+}
