@@ -26,14 +26,19 @@
 
 <footer>
     [<%= link_to "dwyer", root_path, style: "text-decoration:underline" %>]
-    for <a target="_blank" href="https://twitter.com/kweeston">@kweeston</a>.
-    ❤︎  <a target="_blank" href="https://twitter.com/nonrational">@nonrational</a>.
+    <a target="_blank" href="https://twitter.com/nonrational">@nonrational</a>.
 </footer>
 
 <div class="facebook" id="user-widget">
+  <% if current_user %>
+    <div class="user_image <%= 'admin' if current_user.admin? %>">
+        <%= link_to "logout", destroy_user_session_path %>
+    </div>
+  <% else %>
     <div id="sign_in_with_google" class="col-md-4 center-block" style="">
       <%= link_to "login", user_google_oauth2_omniauth_authorize_path %><br />
     </div>
+  <% end %>
 </div>
 
 <div class="dwyer">

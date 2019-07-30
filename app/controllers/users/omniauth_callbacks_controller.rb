@@ -2,11 +2,11 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
-    @admin = Admin.from_google(auth)
+    @user = User.find_or_create_by_google_oauth2(auth)
 
-    if @admin&.persisted?
+    if @user.persisted?
       flash.now[:info] = I18n.t "devise.omniauth_callbacks.success", kind: "Google"
-      sign_in_and_redirect @admin, event: :authentication
+      sign_in_and_redirect @user, event: :authentication
     else
       flash.now[:error] = "#{auth.info.email} is not authorized."
       redirect_to new_session_url

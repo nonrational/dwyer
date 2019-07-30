@@ -8,8 +8,8 @@ class User < ApplicationRecord
   end
 
   class << self
-    def from_google(auth)
-      find_or_create_by(email: email, full_name: auth.info.name, provider: "Google")
+    def find_or_create_by_google_oauth2(auth)
+      find_or_create_by(email: auth.info.email, name: auth.info.name, provider: :google)
     end
   end
 end

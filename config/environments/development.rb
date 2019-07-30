@@ -45,5 +45,5 @@ end
 ENV['FACEBOOK_APP_ID'] ||= '1582405371991209'
 ENV['FACEBOOK_APP_SECRET'] ||= '74d78499f732fcd93e4bdcb2e75d52e4'
 
-ENV["GOOGLE_CLIENT_ID"] ||= '594499527709-e6qa8m6lcv2n1dfse9b73fklg5imjt4h.apps.googleusercontent.com'
-ENV["GOOGLE_CLIENT_SECRET"] ||= 'veswCwtU861UpKkwKoWht-P_'
+ENV["GOOGLE_CLIENT_ID"] ||= '271670638803-anjlpqgm7oaobmellj7i26df1prd2qvc.apps.googleusercontent.com'
+ENV["GOOGLE_CLIENT_SECRET"] ||= 'wnwxuYo1112cqrrApO9p0fYi'
