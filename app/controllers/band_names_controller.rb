@@ -3,13 +3,9 @@ class BandNamesController < ApplicationController
     @band_name = BandName.new(session[:failed_band_name])
     session[:failed_band_name] = nil
 
-    if current_user && current_user.admin?
-      BandName.all
-    else
-      BandName.where(public: true)
-    end
-
-    @band_names = BandName.all.order(created_at: :desc).page(params[:page]).per(20)
+    @band_names = (current_user && current_user.admin? ? BandName.all : BandName.where(public: true)).order(created_at: :desc)
+                                                                                                     .page(params[:page])
+                                                                                                     .per(20)
   end
 
   def show
