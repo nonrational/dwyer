@@ -3,14 +3,15 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require File.expand_path('config/application', __dir__)
+require_relative 'config/application'
 
 Rails.application.load_tasks
 
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
-require 'rubocop/rake_task'
+if %w[development test].include? Rails.env
+  require 'rubocop/rake_task'
 
-RuboCop::RakeTask.new
-task(:default).clear
-task default: [:rubocop]
+  RuboCop::RakeTask.new
+
+  task(:default).clear
+  task default: %i[rubocop spec]
+end
