@@ -33,6 +33,10 @@ article {
   grid-template-columns: 100%;
 }
 
+main {
+  padding: 20px;
+}
+
 a {
   &:hover {
     text-decoration: underline;
@@ -118,6 +122,5 @@ footer {
 }
 
 div.error {
-  padding-left: 20px;
   color: darkred;
 }
