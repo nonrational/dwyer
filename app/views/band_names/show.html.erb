@@ -1,10 +1,12 @@
-<% content_for :breadcrumbs do %>
-    ⇒ <%= @band_name.name %>
-<% end %>
+<h1>
+  <%= @band_name.name %>
+  <% if current_user&.can_edit? @band_name  %>
+    (<%= link_to 'Edit', [:edit, @band_name] %>)
+  <% end %>
+</h1>
 
-<%= render @band_name %>
+<div>
+<p>Called by <%= @band_name.owner.name %></p>
+</div>
 
-<% if current_user && (current_user.admin? || current_user.owns?(@band_name)) %>
-  <%= link_to 'Edit', [:edit, @band_name] %>
-<% end %>
 

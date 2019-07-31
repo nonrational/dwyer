@@ -9,6 +9,10 @@ class User < ApplicationRecord
     id == band_name.owner.id
   end
 
+  def can_edit?(band_name)
+    admin? || self == band_name.owner
+  end
+
   class << self
     def find_or_create_by_google_oauth2(auth)
       find_or_initialize_by(email: auth.info.email, provider: :google) do |user|
