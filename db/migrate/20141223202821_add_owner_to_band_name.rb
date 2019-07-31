@@ -1,4 +1,4 @@
-class AddOwnerToBandName < ActiveRecord::Migration
+class AddOwnerToBandName < ActiveRecord::Migration[5.0]
   def up
     add_column :band_names, :user_id, :integer
   end

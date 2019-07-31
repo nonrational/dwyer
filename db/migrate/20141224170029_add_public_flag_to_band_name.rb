@@ -1,4 +1,4 @@
-class AddPublicFlagToBandName < ActiveRecord::Migration
+class AddPublicFlagToBandName < ActiveRecord::Migration[5.0]
   def up
     add_column :band_names, :public, :boolean, :default => true
   end
