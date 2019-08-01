@@ -61,6 +61,6 @@ class BandNamesController < ApplicationController
   end
 
   def band_name
-    @band_name ||= BandName.find_by(id: params[:id])
+    @band_name ||= BandName.find(params[:id])
   end
 end
