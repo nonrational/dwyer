@@ -6,6 +6,7 @@ jobs:
         environment:
           BUNDLE_PATH: ~/.bundle
           DATABASE_URL: postgresql://root@127.0.0.1:5432/circle_test
+          PGHOST: 127.0.0.1
       - image: circleci/postgres:10.3-alpine-ram
         environment:
           POSTGRES_USER: root
@@ -16,7 +17,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
       - run:
@@ -38,8 +38,7 @@ jobs:
           name: run tests
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
             bundle exec rspec \
               --format progress \
