@@ -22,15 +22,10 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-remote'
   gem 'pry-rails'
-
+  gem 'pry-remote'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter', '~> 0.2.3'
   gem 'rubocop-rails'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'rb-fsevent',         :require => false
 end
 
