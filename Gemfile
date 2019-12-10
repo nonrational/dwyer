@@ -13,7 +13,7 @@ gem 'puma'
 gem 'rollbar'
 gem 'sass-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'simple_form'
+gem 'simple_form', '>= 5.0.0'
 gem 'turbolinks'
 gem 'uglifier'
 
