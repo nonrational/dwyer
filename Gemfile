@@ -29,3 +29,6 @@ group :development, :test do
   gem 'rubocop-rails'
 end
 
+group :production do
+  gem 'cloudflare-rails', '~> 0.6.0'
+end
